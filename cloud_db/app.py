@@ -1,5 +1,5 @@
-from models import Base
-from database import  engine
+from cloud_db.models import Base
+from cloud_db.database import  engine
 
 def main():
     Base.metadata.create_all(engine)
