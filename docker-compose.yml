@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres:15.2-alpine
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    deploy:  
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: 800M
+
+  orm:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 200M
+    depends_on:
+      database:
+        condition: service_started
