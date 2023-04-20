@@ -18,7 +18,7 @@ services:
   orm:
     build: .
     volumes:
-      - .:/usr/src/app
+      - ./cloud_db:/usr/src/app
     deploy:
       resources:
         limits:
