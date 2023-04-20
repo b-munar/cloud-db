@@ -1,3 +1,3 @@
 from . import models
 from . import database
-from . import app
+from . import schemas
