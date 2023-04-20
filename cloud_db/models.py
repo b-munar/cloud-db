@@ -40,7 +40,7 @@ class User(Base):
     tasks = relationship('Task', backref='user')
 
     def hash_password(self):
-        self.password =  bcrypt.hashpw( self.password.encode('utf-8'),bcrypt.gensalt(10)).decode('utf-8')
+        self.password =  bcrypt.hashpw( self.password.encode('utf-8'),bcrypt.gensalt()).decode('utf-8')
     
     def check_password(self, password):
         return bcrypt.checkpw(password.encode('utf-8'), self.password.encode('utf-8'))
