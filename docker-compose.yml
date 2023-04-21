@@ -12,8 +12,8 @@ services:
     deploy:  
       resources:
         limits:
-          cpus: '0.9'
-          memory: 800M
+          cpus: '0.7'
+          memory: 400M
 
   orm:
     build: .
@@ -22,7 +22,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
+          cpus: '0.2'
           memory: 200M
     depends_on:
       database:
